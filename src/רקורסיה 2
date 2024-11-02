@@ -1,0 +1,63 @@
+
+
+		public class adam {
+
+	public static void main(String[] args) {
+
+			public static void main(String[] args) {
+				System.out.println(q18(arr,arr.length-1));
+			}
+			public static int q14(int [] arr, int i) {
+				if (i == 0) {
+					return arr[0];
+			     }
+				return arr[i] + q14(arr, i - 1);
+			}
+			public static int q15 (int[] arr, int i) {
+				if (i==0) {
+					return arr[0];
+				}
+				if (arr[i]>0)
+					return arr[i]+ q15(arr,i-1);
+				return q15(arr,i-1);
+			}
+			public static int q16(int[] arr, int n,int i) {
+				if (i==0) {
+					return -1;
+				}
+				if (arr[i]==n)
+					return i;
+				return  q16(arr,n,i-1);
+			}
+			public static boolean q17(int [] arr,int i) {
+				if (i==0)
+					return true;
+				if (arr[i]<=arr[i-1]){
+					return false;
+				}
+				return q17(arr,i-1);	
+			}
+
+			public static boolean q18(int [] arr,int i) {
+				if (i==0) {
+					return true;
+				}
+				if (ex8(arr[i],2)==true)
+					return false;
+				return q18(arr,i-1);
+			}
+			
+			
+			public static boolean q8(int n,int i) {
+				if (i>(n/2)+1){
+					return true;
+				}
+				if (n%i==0) {
+					return false;
+				}
+				return q8(n,i+1);
+			}
+		}
+	}
+
+}
