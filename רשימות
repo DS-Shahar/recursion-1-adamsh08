@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayToList {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5}; 
+        List<Integer> list = arrayToList(array);
+
+        System.out.println("הרשימה שהתקבלה: " + list);
+    }
+
+    public static List<Integer> arrayToList(int[] array) {
+        List<Integer> list = new ArrayList<>();
+        for (int value : array) {
+            list.add(value);
+        }
+        return list;
+    }
+}
+
+
+
+
+import java.util.List;
+import java.util.Arrays;
+
+public class PrintList {
+    public static void main(String[] args) {
+        List<String> list = Arrays.asList("אחד", "שתיים", "שלוש", "ארבע"); // רשימה לדוגמה
+
+        printList(list);
+    }
+
+    public static void printList(List<?> list) {
+        for (Object item : list) {
+            System.out.println(item);
+        }
+    }
+}
+
+
+
+import java.util.List;
+import java.util.Arrays;
+
+public class RecursivePrintList {
+    public static void main(String[] args) {
+        List<String> list = Arrays.asList("אחד", "שתיים", "שלוש", "ארבע");
+
+        printListRecursive(list, 0);
+    }
+
+    public static void printListRecursive(List<?> list, int index) {
+        if (index >= list.size()) {
+            return;
+        }
+        System.out.println(list.get(index));
+        printListRecursive(list, index + 1);
+    }
+}

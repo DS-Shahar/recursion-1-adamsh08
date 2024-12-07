@@ -1,0 +1,51 @@
+1.
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class RandomNumbersList {
+    public static void main(String[] args) {
+        int x = 1;
+        int y = 100;
+        int count = 20;
+
+        List<Integer> randomNumbers = generateRandomNumbers(x, y, count);
+        System.out.println(randomNumbers);
+    }
+
+    public static List<Integer> generateRandomNumbers(int x, int y, int count) {
+        Random random = new Random();
+        List<Integer> numbers = new ArrayList<>();
+
+        for (int i = 0; i < count; i++) {
+            numbers.add(random.nextInt(y - x + 1) + x);
+        }
+
+        return numbers;
+    }
+}
+
+
+2.
+import java.util.List;
+import java.util.Arrays;
+
+public class CountOccurrences {
+    public static void main(String[] args) {
+        List<Integer> h = Arrays.asList(1, 3, 7, 8, 3, 3, 5, 7, 9, 3, 4, 2, 3);
+        int x = 3;
+
+        int count = countOccurrences(h, x);
+        System.out.println("המספר " + x + " מופיע " + count + " פעמים ברשימה.");
+    }
+
+    public static int countOccurrences(List<Integer> h, int x) {
+        int count = 0;
+        for (int number : h) {
+            if (number == x) {
+                count++;
+            }
+        }
+        return count;
+    }
+}

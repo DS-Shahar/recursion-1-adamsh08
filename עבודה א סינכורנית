@@ -1,0 +1,156 @@
+public static int q10(int n) {
+    if (n == 1) {
+        return 2;
+    }
+    return n * 2 + q10(n - 1);
+}
+
+public static int q11(int h, int current, int step) {
+    if (h == 0) {
+        return 0;
+    }
+    return current - q11(h - 1, current + 2, -step);
+}
+
+public static int q12(int n1, int n2, int limit, int current) {
+    if (current >= limit) {
+        return 0;
+    }
+    if (current % n1 == 0 || current % n2 == 0) {
+        return current + q12(n1, n2, limit, current + 1);
+    } else {
+        return q12(n1, n2, limit, current + 1);
+    }
+}
+
+public static int q13a(int n) {
+    if (n == 0) {
+        return 0;
+    } else if (n == 1) {
+        return 1;
+    } else {
+        return q13a(n - 1) * q13a(n - 1) + q13a(n - 2) * q13a(n - 2);
+    }
+}
+
+public static int q13b(int n) {
+    if (n == 0) {
+        return 0;
+    }
+    return q13a(n) + q13b(n - 1);
+}
+
+public static int q21(String s, int index) {
+    if (index == s.length()) {
+        return 0;
+    }
+    char c = s.charAt(index);
+    if (c >= 'a' && c <= 'z') {
+        return 1 + q21(s, index + 1);
+    } else {
+        return q21(s, index + 1);
+    }
+}
+
+public static String q22(String s, int index) {
+    if (index >= s.length()) {
+        return "";
+    }
+    if (index > 0 && index % 3 == 0) {
+        return "ייי" + s.charAt(index) + q22(s, index + 1);
+    }
+    return s.charAt(index) + q22(s, index + 1);
+}
+
+public static String q23(String s) {
+    if (s.isEmpty()) {
+        return "";
+    }
+    return s.charAt(s.length() - 1) + q23(s.substring(0, s.length() - 1));
+}
+
+public static void q24(char a, char b) {
+    if (a > b) {
+        return;
+    }
+    System.out.print(a + " ");
+    q24((char)(a + 1), b);
+}
+
+public static void q25(int n, int divisor) {
+    if (divisor > n) {
+        return;
+    }
+    if (n % divisor == 0) {
+        System.out.print(divisor + " ");
+    }
+    q25(n, divisor + 1);
+}
+
+public static void q26(int n) {
+    if (n == 0) {
+        return;
+    }
+    int lastDigit = n % 10;
+    if (lastDigit % 2 == 0) {
+        System.out.print(lastDigit + " ");
+    }
+    q26(n / 10);
+}
+
+public static void q27(int i, int j) {
+    if (i > 10) {
+        return;
+    }
+    if (j > 10) {
+        System.out.println();
+        q27(i + 1, 1);
+    } else {
+        System.out.printf("%4d", i * j);
+        q27(i, j + 1);
+    }
+}
+
+public static void q28(int start, int diff, int count) {
+    if (count == 0) {
+        return;
+    }
+    System.out.print(start + " ");
+    q28(start + diff, diff, count - 1);
+}
+
+public static void q29(int h, int current, int diff) {
+    if (h == 0) {
+        return;
+    }
+    System.out.print(current + " ");
+    q29(h - 1, current + diff, diff + 1);
+}
+
+public static void q30(int h, int a, int b) {
+    if (h == 0) {
+        return;
+    }
+    System.out.print(a + " ");
+    q30(h - 1, b, a + 1);
+}
+
+public static void q31(int[] arr, int index) {
+    if (index >= arr.length) {
+        return;
+    }
+    if (index % 2 == 0) {
+        System.out.print(arr[index] + " ");
+    }
+    q31(arr, index + 1);
+}
+
+public static void q32(int[] arr, int index) {
+    if (index >= arr.length - 1) {
+        return;
+    }
+    if (arr[index] < arr[index + 1]) {
+        System.out.print(arr[index] + " ");
+    }
+    q32(arr, index + 1);
+}
